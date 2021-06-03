@@ -1,0 +1,98 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="poll-grid" fixed>
+    <ion-row class="poll-row">
+      <ion-col class="poll-col" size="12" size-md="12" size-lg="12" size-xl="12">
+        <div class="poll-form">
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="sh-card" color="secondary">
+                <ion-card-header>
+                  <ion-card-title>{{ 'createPoll.title' | translate }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{ 'createPoll.caption' | translate }}</p>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <form [formGroup]="pollForm" (ngSubmit)="createPoll()">
+                <ion-list class="inputs-list" lines="none">
+                  <ion-card class="sh-card select-card" color="primary">
+                    <ion-card-content>
+                      <ion-label position="fixed"> {{ 'createPoll.type' | translate }} </ion-label>
+                      <ion-item class="select-item" lines="none">
+                        <ion-select
+                          [interfaceOptions]="customPopoverOptions"
+                          interface="popover"
+                          value="multiChoice"
+                          placeholder="{{ 'manageEvent.multiChoice' | translate }}"
+                          mode="md"
+                        >
+                          <ion-select-option value="multiChoice">{{ 'manageEvent.multiChoice' | translate }}</ion-select-option>
+                          <ion-select-option value="wordCloud" disabled>{{ 'manageEvent.wordCloud' | translate }}</ion-select-option>
+                          <ion-select-option value="quiz" disabled>{{ 'manageEvent.quiz' | translate }}</ion-select-option>
+                          <ion-select-option value="rating" disabled>{{ 'manageEvent.rating' | translate }}</ion-select-option>
+                          <ion-select-option value="openText" disabled>{{ 'manageEvent.openText' | translate }}</ion-select-option>
+                          <ion-select-option value="survey" disabled>{{ 'manageEvent.survey' | translate }}</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                    </ion-card-content>
+                  </ion-card>
+                  <ion-label color="primary" position="fixed"> {{ 'createPoll.question' | translate }} </ion-label>
+                  <ion-item class="input-item sh-button" lines="none">
+                    <ion-input type="text" placeholder="{{ 'createPoll.question' | translate }}" formControlName="name" clearInput autocapitalize="off"></ion-input>
+                  </ion-item>
+                  <div class="error-container">
+                    <ng-container *ngFor="let validation of validation_messages.name">
+                      <div class="error-message" *ngIf="pollForm.get('name').hasError(validation.type) && (pollForm.get('name').dirty || pollForm.get('name').touched)">
+                        <ion-icon name="information-circle-outline"></ion-icon>
+                        <span>{{ validation.message }}</span>
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-label color="primary" position="fixed"> {{ 'createPoll.options' | translate }} </ion-label>
+                  <ng-container formArrayName="options">
+                    <div *ngFor="let _ of options.controls; index as i">
+                      <ion-row>
+                        <ion-col size="10">
+                          <ion-item class="input-item sh-button" lines="none">
+                            <ion-input type="text" placeholder="{{ 'createPoll.option' | translate }}" [formControlName]="i"></ion-input>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col *ngIf="options.length > 1 && (i != (options.length - 1))" size="1">
+                          <ion-button class="remove-button" size="small" fill="clear" (click)="removeOption(i)">
+                            <ion-icon slot="icon-only" name="remove"></ion-icon>
+                          </ion-button>
+                          <!-- <ion-button (click)="addOption()" size="small" fill="clear" shape="round" color="secondary"> X </ion-button> -->
+                        </ion-col>
+                      </ion-row>
+                      <div class="error-container">
+                        <ng-container *ngFor="let validation of validation_messages.code">
+                          <div class="error-message" *ngIf="options.control[i].hasError(validation.type) && (options.control[i].dirty || options.control[i].touched)">
+                            <ion-icon name="information-circle-outline"></ion-icon>
+                            <span>{{ validation.message }}</span>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <!-- <ion-button (click)="addOption()" size="small" shape="round" color="secondary"> + </ion-button> -->
+                  <ion-button class="poll-btn" type="submit" expand="block" [disabled]="!pollForm.valid">{{ 'createPoll.save' | translate }}</ion-button>
+                </ion-list>
+              </form>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

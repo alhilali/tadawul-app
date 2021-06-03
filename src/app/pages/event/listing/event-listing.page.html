@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <a [routerLink]="'/app'">
+        <div class="logo">
+          <!-- <app-image-shell animation="spinner" [src]="'assets/images/logo.png'"></app-image-shell> -->
+          <img src="assets/images/logo.png" alt="" />
+        </div>
+      </a>
+    </ion-buttons>
+    <!-- <ion-title>{{ 'event.title' | translate }}</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="bg"></div> -->
+  <ion-grid class="content-grid" fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="sh-card" color="secondary">
+          <ion-card-header>
+            <ion-card-title>{{ 'dashboard.welcome' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content> </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ng-container>
+    </ng-container>
+  </ion-grid>
+</ion-content>

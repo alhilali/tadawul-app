@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+		<ion-searchbar placeholder="{{ 'search.title' | translate }}"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingText=""
+      refreshingText="">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="dashboard-content">
+		<ion-row class="top-tickers">
+			<ion-col size="12">
+				<ion-slides pager="false" [options]="topTickersSlideOpts">
+					<ion-slide *ngFor="let ticker of topTickers">
+						<app-ticker [ticker]="ticker" [routerLink]="'/app/events/' + ticker.code"></app-ticker>
+					</ion-slide>
+				</ion-slides>
+			</ion-col>
+		</ion-row>
+    <ion-grid class="stats-cards" fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card color="primary">
+            <div class="cardBG"></div>
+            <ion-card-header>
+              <ion-card-subtitle>{{ 'dashboard.createYourFirstList' | translate }}</ion-card-subtitle>
+              <ion-card-title></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid class="steps-container" fixed>
+                <ion-row>
+                  <ion-col size="12" size-lg="4">
+                    <div class="step" (click)="showCreateEvent()">
+                      <div class="icon">
+                        <ion-icon name="albums-outline"></ion-icon>
+                      </div>
+                      <p>{{ 'dashboard.createList' | translate }}</p>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+		<ion-grid class="news-grid" fixed>
+      <ion-row>
+        <ion-col size="12">
+					<ion-list class="news">
+						<ion-item *ngFor="let new of news" lines="inset">
+							<div class="content">
+								<div class="tickers">
+									<ion-row>
+										<ion-col *ngFor="let ticker of new.tickers" size="4">
+												<p>
+													{{ ticker.name }}
+													<span [style.color]="ticker.change <= 0 ? 'red' : 'green'">{{ ticker.change | percent:'1.2-2' }}</span>
+												</p>
+										</ion-col>
+									</ion-row>
+								</div>
+								<div class="title">
+									<h5>{{ new.title }}</h5>
+								</div>
+								<div class="time">
+									<p>{{ new.date }} - saudiexchange.sa</p>
+								</div>
+							</div>
+						</ion-item>
+					</ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

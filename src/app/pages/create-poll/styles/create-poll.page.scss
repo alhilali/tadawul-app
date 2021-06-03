@@ -1,0 +1,35 @@
+:host {
+  // --page-background: var(--app-background);
+  --ion-item-background: var(--page-background);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+ion-content {
+  --background: var(--page-background);
+}
+
+.poll-grid {
+  // padding: 0px 10%;
+}
+
+.select-card {
+  padding: 3px;
+  margin-bottom: 20px;
+  .select-item {
+    --ion-item-background: transparent;
+    color: white;
+    ion-select {
+      max-width: 100%;
+      padding-inline-start: 0px;
+    }
+  }
+}
+
+.inputs-list {
+  // padding-inline-start: 25px;
+}
+
+.remove-button {
+  height: 100%;
+  padding-bottom: 30px;
+}

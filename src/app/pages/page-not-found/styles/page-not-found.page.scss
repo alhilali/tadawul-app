@@ -1,0 +1,65 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: white;
+}
+
+ion-header {
+  ion-toolbar {
+    --ion-toolbar-background: white;
+  }
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.not-found-content {
+  --background: var(--page-background);
+  .not-found-grid {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+
+    .bg {
+      background-color: var(--ion-color-primary);
+      align-self: flex-end;
+      app-image-shell {
+        padding: 30px;
+      }
+    }
+    .not-found-row {
+      background-color: var(--ion-color-primary);
+      height: 100%;
+    }
+
+    .content-col {
+      background-color: var(--page-background);
+    }
+  }
+
+  .illustration-wrapper {
+    margin: 0px 10%;
+  }
+
+  .not-found-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .not-found-text {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+
+  .go-home-btn {
+    margin: 0px;
+  }
+
+  .not-found-container {
+    // padding: 15%;
+    // padding-top: 50%;
+    padding: 15vh 15% 15%;
+  }
+}

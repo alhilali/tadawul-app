@@ -1,0 +1,72 @@
+<ion-app dir="{{ textDir }}">
+  <!-- when=false means that the split pane will never expand automatically -->
+  <!-- For more info check https://ionicframework.com/docs/api/split-pane -->
+  <ion-split-pane content-id="menu-content" when="off">
+    <!-- [side]="textDir === 'rtl' ? 'end' : 'start'" -->
+    <ion-menu content-id="menu-content" [side]="textDir === 'rtl' ? 'end' : 'start'" class="app-sidemenu" type="push">
+      <ion-header>
+        <ion-toolbar>
+          <ion-row class="user-details-wrapper">
+            <ion-card>
+              <ion-card-content>
+                <ion-col size="12">
+                  <div class="user-avatar-container">
+                    <app-aspect-ratio [ratio]="{ w: 2, h: 2 }">
+                      <app-image-shell class="user-avatar" animation="spinner" [display]="'cover'" [src]="currentUser?.image"></app-image-shell>
+                    </app-aspect-ratio>
+                  </div>
+                </ion-col>
+                <ion-col class="user-info-wrapper" size="12">
+                  <h3 class="user-name">{{ currentUser?.name }}</h3>
+                  <p>{{ currentUser?.email }}</p>
+                </ion-col>
+                <ion-button color="danger" (click)="signOut()" size="small">
+                  <!-- <ion-icon name="log-out-outline" slot="icon-only"></ion-icon> -->
+                  {{ 'sideMenu.signOut' | translate }}
+                </ion-button>
+              </ion-card-content>
+              <div class="separator"></div>
+            </ion-card>
+          </ion-row>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <div class="side-menu-content">
+          <ion-list>
+            <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
+              <ion-item [routerLink]="p.url" routerLinkActive="active">
+                <ion-icon slot="start" [name]="p.ionicIcon ? p.ionicIcon : ''" [src]="p.customIcon ? p.customIcon : ''"></ion-icon>
+                <ion-label>
+                  {{ p.translationKey | translate }}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+          <!-- <ion-list>
+            <ion-list-header>
+              <ion-label>Location</ion-label>
+            </ion-list-header>
+            <ion-menu-toggle autoHide="false" *ngFor="let p of locationPages; let i = index">
+              <ion-item [routerLink]="p.url" routerLinkActive="active">
+                <ion-icon slot="start" [name]="p.ionicIcon ? p.ionicIcon : ''" [src]="p.customIcon ? p.customIcon : ''"></ion-icon>
+                <ion-label>
+                  {{ p.title }}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list> -->
+        </div>
+        <div class="separator"></div>
+        <div class="footer">
+          <div class="lang-switch">
+            <ion-button fill="clear" color="primary" size="sm" (click)="onLangSwitchClick('ar')" [disabled]="textDir === 'rtl'"> {{ 'common.arabic' | translate }} </ion-button>
+            <ion-button fill="clear" color="primary" size="sm" (click)="onLangSwitchClick('en')" [disabled]="textDir === 'ltr'"> {{ 'common.english' | translate }} </ion-button>
+          </div>
+          <p>&copy; 2020 {{ 'footer.rights' | translate }}</p>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <!-- Main app content get's rendered in this router-outlet -->
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

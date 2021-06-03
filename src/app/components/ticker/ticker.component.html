@@ -1,0 +1,15 @@
+<ion-row class="ticker">
+  <ion-col class="information">
+		<ion-row class="name">
+			<p>{{ _name }}</p>
+		</ion-row>
+		<ion-row class="price">
+			<p>{{ _price | currency:'SAR':'' }}</p>
+		</ion-row> 
+		<ion-row class="change">
+			<ion-chip [color]="_change <= 0 ? 'danger' : 'success'">
+				<ion-label [color]="_change <= 0 ? 'danger' : 'success'">{{ _change | percent:'1.2-2' }}</ion-label>
+			</ion-chip>
+		</ion-row> 
+	</ion-col>
+</ion-row>

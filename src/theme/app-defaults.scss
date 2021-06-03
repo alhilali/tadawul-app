@@ -1,0 +1,106 @@
+ion-title {
+  // Adding !important to force precedence in SSR
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+}
+
+// Override Ionic styles
+.input-clear-icon {
+  // Change these properties so the Ionic close icon aligns with show/hide password
+  &.sc-ion-input-ios,
+  &.sc-ion-input-md {
+    width: calc(1.2rem);
+    margin-inline-start: 0.5rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #6993ff;
+}
+
+.sh-button {
+  --border-style: 0px;
+  --background: #f3f6f9;
+  border-color: #f3f6f9;
+  color: #3f4254;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  --border-radius: 1px !important;
+  ion-input {
+    // padding: 1rem !important;
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+  }
+  &.ion-invalid {
+    &.ion-touched {
+      --border-width: 1px;
+      --border-style: solid;
+      --border-color: red;
+    }
+  }
+}
+
+.sh-card {
+  margin: 0px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 0.85rem;
+}
+
+.cardBG {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 279px;
+  height: 274px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjk0IiBoZWlnaHQ9IjI3NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gIDxkZWZzPiAgICA8bGluZWFyR3JhZGllbnQgeDE9IjEwNC42NTclIiB5MT0iLTQ1LjI3NCUiIHgyPSIyMS45NDQlIiB5Mj0iNC4wNzklIiBpZD0iYSI+ICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzU2NTY3OCIgb2Zmc2V0PSIwJSIvPiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM1NjU2NzgiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIxMDAlIi8+ICAgIDwvbGluZWFyR3JhZGllbnQ+ICA8L2RlZnM+ICA8cGF0aCBkPSJNMTA4My4xMzYgMTI2SDE0NDB2MTc3Ljc4MkMxNDA0LjkxMyAzNjEuNDcgMTM0MS40NTYgNDAwIDEyNjkgNDAwYy0xMTAuNDU3IDAtMjAwLTg5LjU0My0yMDAtMjAwIDAtMjYuMTQxIDUuMDE1LTUxLjExMSAxNC4xMzYtNzR6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTE0NiAtMTI2KSIgZmlsbD0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsLW9wYWNpdHk9Ii40OCIvPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+}
+
+ion-title {
+  // padding-inline-start: 100px !important;
+  // text-align: start;
+  // padding-bottom: 5px;
+}
+
+ion-toolbar {
+  .logo {
+    margin-inline-start: 5px;
+    width: 85px;
+  }
+}
+
+.ion-title {
+  text-align: start !important;
+}
+
+ion-toolbar {
+  --min-height: 54px;
+  --ion-toolbar-border-color: #ebedf3;
+}
+
+@media (min-width: 820px) {
+  .container {
+    padding-left: 20vh;
+    padding-right: 20vh;
+  }
+}
+
+@media (min-width: 820px) {
+  ion-toolbar {
+    --min-height: 80px;
+  }
+}
+
+ion-button {
+  --border-radius: 2px;
+}
+
+ion-button {
+  outline: none !important;
+}
+
+ion-button:focus {
+  outline: 0 !important;
+}

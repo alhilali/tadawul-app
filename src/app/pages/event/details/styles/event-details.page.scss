@@ -1,0 +1,104 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-tags-vertical-gutter: 2px;
+  --page-tags-horizontal-gutter: 4px;
+  --page-places-gutter: 5px;
+
+  --page-color: #00afff;
+}
+
+.segment-toolbar {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-bottom: 0px;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.event-details-content {
+  --background: var(--page-background);
+
+  .steps-container {
+    text-align: center;
+
+    .step {
+      background: #ffffff3b;
+      border-radius: 1rem;
+      padding: 15px;
+      transition: all 300ms;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .step:hover {
+      background: #ffffff61 !important;
+    }
+  }
+
+  .qas-content {
+    .qas-info-card {
+      p {
+        line-height: 28px;
+      }
+      .highlighted {
+        background: var(--ion-color-secondary);
+        padding: 0px 10px;
+      }
+    }
+    .listing-item {
+      // padding: 0px var(--page-margin);
+      border-radius: 10px;
+      margin: 10px 5px;
+      background-color: white;
+      // border-bottom: calc(var(--page-margin) / 2) solid var(--page-color);
+
+      .info-row {
+        --ion-grid-column-padding: 0px;
+
+        padding: var(--page-margin);
+        padding-bottom: calc(var(--page-margin) / 2);
+
+        .main-info-col {
+          padding-right: calc(var(--page-margin) / 2);
+        }
+
+        .more-icon {
+          font-size: small;
+        }
+
+        .item-name {
+          margin: 0px 0px var(--page-margin);
+          text-transform: capitalize;
+          font-size: 16px;
+
+          .name-anchor {
+            color: var(--ion-color-dark);
+            display: block;
+            text-decoration: none;
+          }
+        }
+
+        .item-description {
+          margin: 0px 0px calc(var(--page-margin) / 2);
+          color: var(--ion-color-dark-shade);
+          font-size: 14px;
+          line-height: 1.3;
+        }
+
+        .item-address {
+          margin: 0px;
+          color: var(--ion-color-dark-tint);
+          font-size: 12px;
+          direction: ltr;
+          float: right;
+          margin: 0;
+          font-size: x-small;
+          float: right;
+        }
+      }
+    }
+  }
+}

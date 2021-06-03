@@ -1,0 +1,24 @@
+<ion-tabs (ionTabsDidChange)="ionTabsDidChange($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="dashboard" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/dashboard']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label class="tab-title">{{ 'home.title' | translate }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="news" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/news']" disabled>
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-label class="tab-title">{{ 'news.title' | translate }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="search" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/search']" disabled>
+      <ion-icon name="search"></ion-icon>
+      <ion-label class="tab-title">{{ 'search.title' | translate }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="market" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/market']" disabled>
+      <ion-icon name="globe"></ion-icon>
+      <ion-label class="tab-title">{{ 'market.title' | translate }}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="notifications" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/notifications']" disabled>
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label class="tab-title">{{ 'notifications.title' | translate }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

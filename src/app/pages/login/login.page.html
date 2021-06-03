@@ -1,0 +1,85 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <a [routerLink]="''">
+        <div class="logo">
+          <!-- <app-image-shell animation="spinner" [src]="'assets/images/logo.png'"></app-image-shell> -->
+          <img src="assets/images/logo.png" alt="" />
+        </div>
+      </a>
+    </ion-buttons>
+    <ion-title> {{ 'login.title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content">
+  <ion-grid class="login-grid" fixed>
+    <ion-row class="login-row">
+      <ion-col class="bg" size="12" size-md="4" size-lg="4" size-xl="4">
+        <app-image-shell class="category-cover" animation="spinner" [src]="'assets/images/login-icon.svg'">
+          <app-aspect-ratio [ratio]="{w:1, h:1}"> </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col class="login-col" size="12" size-md="8" size-lg="8" size-xl="8">
+        <div class="login-form">
+          <h3>{{ 'login.welcome' | translate }}</h3>
+          <p>
+            {{ 'login.newHere' | translate }}
+            <a class="signup-btn" fill="clear" [routerLink]="['/auth/signup']" [routerDirection]="'root'"> {{ 'login.register' | translate }} </a>
+          </p>
+          <form [formGroup]="loginForm" (ngSubmit)="signInWithEmail()">
+            <ion-list class="inputs-list" lines="full">
+              <ion-label color="primary" position="fixed"> {{ 'login.email' | translate }} </ion-label>
+              <ion-item class="input-item sh-button" lines="none">
+                <ion-input type="email" placeholder="{{ 'login.email' | translate }}" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+              </ion-item>
+              <div class="error-container">
+                <ng-container *ngFor="let validation of validation_messages.email">
+                  <div class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>{{ validation.message }}</span>
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-label color="primary" position="fixed"> {{ 'login.password' | translate }} </ion-label>
+              <ion-item class="input-item sh-button" lines="none">
+                <app-show-hide-password>
+                  <ion-input type="password" placeholder="{{ 'login.password' | translate }}" formControlName="password"></ion-input>
+                </app-show-hide-password>
+              </ion-item>
+              <div class="error-container">
+                <ng-container *ngFor="let validation of validation_messages.password">
+                  <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>{{ validation.message }}</span>
+                  </div>
+                </ng-container>
+              </div>
+            </ion-list>
+
+            <ion-button class="login-btn" type="submit" expand="block" [disabled]="!loginForm.valid">{{ 'login.login' | translate }}</ion-button>
+            <ion-row class="other-auth-options-row">
+              <ion-button class="forgot-btn" fill="clear" [routerLink]="['/auth/forgot-password']"> {{ 'login.forgotPassword' | translate }} </ion-button>
+            </ion-row>
+          </form>
+          <div class="social-auth-options">
+            <!-- <p class="options-divider"></p> -->
+            <!-- <ion-button class="social-auth-btn facebook-auth-btn" expand="block" color="facebook" (click)="doFacebookLogin()">Facebook</ion-button> -->
+            <ion-button class="social-auth-btn google-auth-btn" expand="block" color="google" (click)="doGoogleLogin()">
+              <ion-icon slot="start" name="logo-google"></ion-icon>
+              Google</ion-button
+            >
+            <ion-button class="social-auth-btn twitter-auth-btn" expand="block" color="twitter" (click)="doTwitterLogin()">
+              <ion-icon slot="start" name="logo-twitter"></ion-icon>
+              Twitter</ion-button
+            >
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

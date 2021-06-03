@@ -1,0 +1,95 @@
+:host {
+  --page-background: var(--app-background);
+}
+
+ion-content {
+  --background: var(--page-background);
+}
+
+ion-refresher {
+	height: 100%;
+	--color: var(--ion-color-primary);
+	background: var(--ion-color-light);
+	ion-refresher-content {
+		display: block;
+		margin-top: 5px;
+		--ion-text-color: var(--ion-color-primary);
+	}
+}
+
+
+ion-header {
+	ion-toolbar {
+		padding-top: 15px;
+		--border-width: 0px;
+	}
+}
+
+
+.top-tickers {
+	ion-col {
+		padding: 0px;
+	}
+}
+
+
+.stats-cards {
+  padding: 0px;
+  ion-icon {
+    font-size: 2rem;
+  }
+
+  ion-card {
+    margin: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 0.85rem;
+    ion-card-content {
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.steps-container {
+  text-align: center;
+
+  .step {
+    background: #ffffff3b;
+    border-radius: 1rem;
+    padding: 15px;
+    transition: all 300ms;
+    cursor: pointer;
+    width: 100%;
+  }
+  .step:hover {
+    background: #ffffff61 !important;
+  }
+}
+
+.news-grid {
+	background: var(--ion-color-primary-contrast);
+
+	.news {
+
+		ion-item {
+			--border-color: var(--ion-color-light-shade);
+		}
+
+		.tickers {
+			p {
+				font-size: 10px;
+				display: inline-block;
+				margin: 0px;
+			}
+		}
+		.title {
+			h5 {
+				margin-top: 5px;
+			}
+		}
+
+		.time {
+			font-size: 10px;
+			color: var(--ion-color-medium);
+		}
+	}
+}

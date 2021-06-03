@@ -1,0 +1,104 @@
+{
+  "common": {
+    "arabic": "AR",
+    "english": "EN",
+    "submit": "Submit"
+  },
+  "sideMenu": {
+    "signOut": "Sign out"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome!",
+    "createYourFirstEvent": "Create your first event",
+    "createEvent": "Create Event"
+  },
+  "account": {
+    "title": "Account"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "login": {
+    "welcome": "Welcome",
+    "title": "Login",
+    "newHere": "New here?",
+    "register": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log In",
+    "forgotPassword": "Forgot your password?"
+  },
+  "register": {
+    "title": "Register",
+    "haveAccount": "Already have an account?",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "register": "Sign Up"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "recoverPassword": "Recover your password",
+    "resetPassword": "Reset Password"
+  },
+  "home": {
+    "main": "Meet Location",
+    "mainDesc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod, Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
+    "sub": "Meet Location",
+    "subDesc": "Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.",
+    "feature-1-title": "Powerful",
+    "feature-1-text": "A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.",
+    "feature-2-title": "Track",
+    "feature-2-text": "A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.",
+    "feature-3-title": "Follow",
+    "feature-3-text": "A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.",
+    "stayUpdated": "Stay in the know",
+    "stayUpdatedCaption": "Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.",
+    "earlyAccess": "Early Access",
+    "yourEmail": "Your email",
+    "code": "Enter event code",
+    "enterEvent": "Join"
+  },
+  "footer": {
+    "rights": "Location, all rights reserved",
+    "contact": "Contact",
+    "aboutUs": "About us",
+    "faq": "FAQ's",
+    "support": "Support"
+  },
+  "event": {
+    "title": "Events",
+    "code": "Code"
+  },
+  "createEvent": {
+    "title": "New Event",
+    "name": "Event Name",
+    "code": "Event Code",
+    "create": "Create Event"
+  },
+  "viewEvent": {
+    "title": "Event",
+    "polls": "Polls",
+    "qas": "Questions",
+    "liveQAs": "Live Questions",
+    "liveQAsInfo": "You can send and view all questions from here",
+    "question": "Your question",
+    "pollsInfo": "You can vote and submit your answers from here"
+  },
+  "manageEvent": {
+    "polls": "Polls",
+    "qas": "Q&As",
+    "createPolls": "Create your polls",
+    "pollsCaption": "Engage your audience with live polls, surveys, or quizzes.",
+    "multiChoice": "Multiple choice",
+    "wordCloud": "Word cloud",
+    "quiz": "Quix",
+    "rating": "Rating",
+    "openText": "Open Text",
+    "survey": "Survey",
+    "liveQAs": "Live Questions",
+    "liveQAsInfo": "Your participants can send questions at www.elenco.com with code ",
+    "notFoud": "Couldn't find this event. Please double check your url."
+  }
+}

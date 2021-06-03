@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <a [routerLink]="''">
+        <div class="logo">
+          <!-- <app-image-shell animation="spinner" [src]="'assets/images/logo.png'"></app-image-shell> -->
+          <img src="assets/images/logo.png" alt="" />
+        </div>
+      </a>
+    </ion-buttons>
+    <ion-title>{{ details?.name }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="segment-toolbar" color="primary">
+    <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="qas">
+      <ion-segment-button value="polls" layout="icon-start">
+        <ion-label>{{ 'viewEvent.polls' | translate }}</ion-label>
+        <ion-icon name="bookmarks-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="qas" layout="icon-start">
+        <ion-label>{{ 'viewEvent.qas' | translate }}</ion-label>
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="event-details-content">
+  <ion-grid fixed>
+    <div class="not-found" *ngIf="notFound">
+      <ion-card color="primary">
+        <div class="cardBG"></div>
+        <ion-card-header>
+          <ion-card-subtitle></ion-card-subtitle>
+          <ion-card-title></ion-card-title>
+        </ion-card-header>
+        <ion-card-content> {{ 'manageEvent.notFoud' | translate }} </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="content" *ngIf="!notFound">
+      <div class="polls-content" [style.display]="currentSegment === 'polls' ? 'unset' : 'none'">
+        <ion-grid class="stats-cards" fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="sh-card" color="secondary">
+                <ion-card-header>
+                  <ion-card-title>{{ 'viewEvent.polls' | translate }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content> <p>{{ 'viewEvent.pollsInfo' | translate }}</p> </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="qas-content" [style.display]="currentSegment === 'qas' ? 'unset' : 'none'">
+        <ion-grid class="stats-cards" fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="sh-card" color="secondary">
+                <ion-card-header>
+                  <ion-card-title>{{ 'viewEvent.liveQAs' | translate }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content> <p>{{ 'viewEvent.liveQAsInfo' | translate }}</p> </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card class="qas-info-card sh-card" color="primary">
+                <div class="cardBG"></div>
+                <ion-card-content>
+                  <ion-textarea type="text" [(ngModel)]="question" placeholder="{{ 'viewEvent.question' | translate }}"></ion-textarea>
+                  <ion-button class="question-btn" color="secondary" (click)="sendQuestion(question)" expand="block" [disabled]="!question || question === 'question'"
+                    >{{ 'common.submit' | translate }}</ion-button
+                  >
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <div class="listing-item" *ngFor="let item of details?.questions">
+            <ion-row class="info-row">
+              <ion-col class="main-info-col">
+                <ion-row>
+                  <ion-col size="11">
+                    <h3 class="item-name">
+                      <app-text-shell animation="bouncing" [data]="item?.title"></app-text-shell>
+                    </h3>
+                    <!-- <p class="item-description">
+                        <app-text-shell animation="bouncing" [data]="item.description" lines="3"></app-text-shell>
+                      </p> -->
+                    <p class="item-address">
+                      <app-text-shell animation="bouncing" [data]="item?.createdAt | date:'short'"></app-text-shell>
+                    </p>
+                  </ion-col>
+                  <ion-col size="1">
+                    <ion-icon class="more-icon" name="ellipsis-vertical"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

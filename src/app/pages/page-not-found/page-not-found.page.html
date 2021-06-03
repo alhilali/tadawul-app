@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title> Page Not Found </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="not-found-content">
+	<ion-grid class="not-found-grid">
+		<ion-row class="not-found-row">
+			<ion-col class="bg" size="12" size-md="4" size-lg="4" size-xl="4">			
+				<div class="illustration-wrapper">
+					<app-aspect-ratio [ratio]="{w: 1, h: 1}">
+						<app-image-shell [src]="'./assets/sample-images/page-not-found.svg'" [alt]="'not found page'"></app-image-shell>
+					</app-aspect-ratio>
+				</div>
+			</ion-col>
+			<ion-col class="content-col">
+			<div class="not-found-container">			
+				<div class="not-found-title">404</div>
+				<div class="not-found-text">Page not found</div>
+				<ion-button class="go-home-btn" [routerLink]="['']" expand="block" [routerDirection]="'root'">Back to Home page</ion-button>
+			</div>			
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
