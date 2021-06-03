@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
-import { CreateEventPage } from '../event/create-event/create-event.page';
+import { CreateStockPage } from '../stock/create-stock/create-stock.page';
+import { StockDetailsModel } from '../stock/details/stock-details.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,35 +15,35 @@ export class DashboardPage implements OnInit {
     speed: 400,
 		slidesPerView: 4.2,
   };
-	topTickers = [
+	topTickers: StockDetailsModel[] = [
 		{
-			code: 8887,
-			name: 'سابك',
-			price: 500,
+			code: '2010',
+			company: 'سابك',
+			lastPrice: 500,
 			change: 0.015
 		},
 		{
-			code: 8887,
-			name: 'ارامكو',
-			price: 500,
+			code: '2222',
+			company: 'ارامكو',
+			lastPrice: 500,
 			change: -0.08
 		},
 		{
-			code: 8887,
-			name: 'الراجحي',
-			price: 500,
+			code: '1120',
+			company: 'الراجحي',
+			lastPrice: 500,
 			change: 0.189
 		},
 		{
-			code: 8887,
-			name: 'الاتصالات',
-			price: 500,
+			code: '7010',
+			company: 'الاتصالات',
+			lastPrice: 500,
 			change: 0.24
 		},
 		{
-			code: 8887,
-			name: 'تكافل',
-			price: 500,
+			code: '8230',
+			company: 'تكافل',
+			lastPrice: 500,
 			change: -0.1
 		}
 	]
@@ -104,7 +105,7 @@ export class DashboardPage implements OnInit {
 
   async showCreateEvent() {
     const modal = await this.modalController.create({
-      component: CreateEventPage,
+      component: CreateStockPage,
       swipeToClose: true,
       presentingElement: this.routerOutlet.nativeEl,
     });

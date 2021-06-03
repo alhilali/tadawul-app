@@ -19,7 +19,7 @@
 			<ion-col size="12">
 				<ion-slides pager="false" [options]="topTickersSlideOpts">
 					<ion-slide *ngFor="let ticker of topTickers">
-						<app-ticker [ticker]="ticker" [routerLink]="'/app/events/' + ticker.code"></app-ticker>
+						<app-ticker [ticker]="ticker" [routerLink]="'/app/stock/' + ticker.code"></app-ticker>
 					</ion-slide>
 				</ion-slides>
 			</ion-col>

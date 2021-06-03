@@ -41,10 +41,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: 'event/:code',
-    loadChildren: () => import('./pages/participant/event/details/event-details.module').then((m) => m.EventDetailsPageModule),
-  },
-  {
     path: '**',
     redirectTo: 'page-not-found',
   },

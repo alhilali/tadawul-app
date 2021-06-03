@@ -8,11 +8,11 @@ import { CreatePollPageRoutingModule } from './create-poll-routing.module';
 
 import { CreatePollPage } from './create-poll.page';
 import { ComponentsModule } from '../../components/components.module';
-import { EventService } from '../event/event.service';
+import { StockService } from '../stock/stock.service';
 
 @NgModule({
   imports: [ComponentsModule, CommonModule, FormsModule, ReactiveFormsModule, IonicModule, CreatePollPageRoutingModule],
   declarations: [CreatePollPage],
-  providers: [EventService],
+  providers: [StockService],
 })
 export class CreatePollPageModule {}

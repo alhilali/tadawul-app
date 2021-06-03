@@ -4,7 +4,7 @@ import { delay, map, startWith } from 'rxjs/operators';
 import { AppShellConfig } from './config/app-shell.config';
 
 export class ShellModel {
-  isShell = false;
+  isShell? = false;
 }
 
 export class DataStore<T> {

@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
-import { EventDetailsModel } from '../event/details/event-details.model';
-import { EventService } from '../event/event.service';
+import { StockDetailsModel } from '../stock/details/stock-details.model';
+import { StockService } from '../stock/stock.service';
 
 @Component({
   selector: 'app-create-poll',
@@ -23,9 +23,9 @@ export class CreatePollPage implements OnInit {
     cssClass: 'customListPopover',
   };
 
-  @Input('event') event: EventDetailsModel;
+  @Input('event') event: StockDetailsModel;
 
-  constructor(public loadingController: LoadingController, public router: Router, private modalController: ModalController, private eventService: EventService) {
+  constructor(public loadingController: LoadingController, public router: Router, private modalController: ModalController, private stockService: StockService) {
     this.pollForm = new FormGroup({
       name: new FormControl('', Validators.compose([Validators.required])),
       options: new FormArray([new FormControl('', Validators.compose([Validators.required]))]),
@@ -82,7 +82,7 @@ export class CreatePollPage implements OnInit {
     const { name, options } = this.pollForm.value;
     console.log(options);
 
-    this.eventService.createPoll('this.event.id', name, options).subscribe(
+    this.stockService.createPoll('this.event.id', name, options).subscribe(
       (data) => {
         console.log(data);
         this.modalController.dismiss({ question: data, success: true });

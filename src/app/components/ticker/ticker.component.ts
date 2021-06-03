@@ -5,6 +5,7 @@ import { Observable, Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import * as dayjs from 'dayjs';
+import { StockDetailsModel } from '../../pages/stock/details/stock-details.model';
 
 @Component({
   selector: 'app-ticker',
@@ -52,9 +53,9 @@ export class TickerComponent implements OnInit, OnDestroy {
   _secondModulus = (secondsLeft) => (secondsLeft % this._minuteDivisor);
 
 	@Input()
-	set ticker(ticker: { name: string, price: number, change: number }) {
-		this._name = ticker.name;
-		this._price = ticker.price;
+	set ticker(ticker: StockDetailsModel) {
+		this._name = ticker.company;
+		this._price = ticker.lastPrice;
 		this._change = ticker.change;
 	}
 

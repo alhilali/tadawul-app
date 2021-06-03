@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ details?.code }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="segment-toolbar">
+    <ion-segment mode="md" (ionChange)="segmentChanged($event)" value="summary">
+      <ion-segment-button value="summary" layout="icon-start">
+        <ion-label color="dark">{{ 'viewStock.summary' | translate }}</ion-label>
+        <!-- <ion-icon name="bookmarks-outline"></ion-icon> -->
+      </ion-segment-button>
+      <ion-segment-button value="details" layout="icon-start">
+        <ion-label>{{ 'viewStock.details' | translate }}</ion-label>
+        <!-- <ion-icon name="help-circle-outline"></ion-icon> -->
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="stock-details-content">
+  <ion-grid fixed>
+    <div class="not-found" *ngIf="notFound">
+      <ion-card color="primary">
+        <div class="cardBG"></div>
+        <ion-card-header>
+          <ion-card-subtitle></ion-card-subtitle>
+          <ion-card-title></ion-card-title>
+        </ion-card-header>
+        <ion-card-content> {{ 'viewStock.notFoud' | translate }} </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="content" *ngIf="!notFound">
+      <div class="summary-content" [style.display]="currentSegment === 'summary' ? 'unset' : 'none'">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">
+							<h5>{{ details.company }}</h5>
+							<h1>{{ details.lastPrice | currency:'SAR':'' }}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="details-content" [style.display]="currentSegment === 'details' ? 'unset' : 'none'">
+        <ion-grid class="stats-cards" fixed>
+          <ion-row>
+            <ion-col size="12">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

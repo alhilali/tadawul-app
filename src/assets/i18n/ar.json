@@ -59,7 +59,7 @@
     "earlyAccess": "آخر التحديثات",
     "yourEmail": "ايميلك",
     "code": "كود الحدث",
-    "enterEvent": "شارك"
+    "enterStock": "شارك"
   },
   "footer": {
     "rights": "جميع الحقوق محفوظة",
@@ -72,7 +72,7 @@
     "title": "الاحداث",
     "code": "الكود"
   },
-  "createEvent": {
+  "createStock": {
     "title": "حدث جديد",
     "name": "اسم الحدث",
     "code": "كود الحدث",
@@ -88,16 +88,12 @@
     "option": "خيار",
     "type": "النوع"
   },
-  "viewEvent": {
+  "viewStock": {
     "title": "حدث",
-    "polls": "الاستطلاعات",
-    "qas": "الاسئلة",
-    "liveQAs": "اسئلة مباشرة",
-    "liveQAsInfo": "بإمكانك ارسال ومتابعة اسئلة الحدث من هنا",
-    "question": "سؤالك",
-    "pollsInfo": "من هنا تقدر تصوت وتجاوب على اسئلة الحدث"
+    "summary": "ملخص",
+    "details": "تفاصيل"
   },
-  "manageEvent": {
+  "manageStock": {
     "polls": "الاستطلاعات",
     "qas": "الاسئلة",
     "createPolls": "اضف استطلاع جديد",

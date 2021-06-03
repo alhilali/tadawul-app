@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="stock-grid" fixed>
+    <ion-row class="stock-row">
+      <ion-col class="stock-col" size="12" size-md="12" size-lg="12" size-xl="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="sh-card" color="secondary">
+              <ion-card-header>
+                <ion-card-title>{{ 'createStock.title' | translate }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ 'createStock.caption' | translate }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <div class="stock-form">
+              <form [formGroup]="stockForm" (ngSubmit)="createStock()">
+                <ion-list class="inputs-list" lines="full">
+                  <ion-label color="primary" position="fixed"> {{ 'createStock.name' | translate }} </ion-label>
+                  <ion-item class="input-item sh-button" lines="none">
+                    <ion-input type="text" placeholder="{{ 'createStock.name' | translate }}" formControlName="name" clearInput autocapitalize="off"></ion-input>
+                  </ion-item>
+                  <div class="error-container">
+                    <ng-container *ngFor="let validation of validation_messages.name">
+                      <div class="error-message" *ngIf="stockForm.get('name').hasError(validation.type) && (stockForm.get('name').dirty || stockForm.get('name').touched)">
+                        <ion-icon name="information-circle-outline"></ion-icon>
+                        <span>{{ validation.message }}</span>
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-label color="primary" position="fixed"> {{ 'createStock.code' | translate }} </ion-label>
+                  <ion-item class="input-item sh-button" lines="none">
+                    <ion-input type="text" placeholder="{{ 'createStock.code' | translate }}" formControlName="code"></ion-input>
+                  </ion-item>
+                  <div class="error-container">
+                    <ng-container *ngFor="let validation of validation_messages.code">
+                      <div class="error-message" *ngIf="stockForm.get('code').hasError(validation.type) && (stockForm.get('code').dirty || stockForm.get('code').touched)">
+                        <ion-icon name="information-circle-outline"></ion-icon>
+                        <span>{{ validation.message }}</span>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ion-list>
+
+                <ion-button class="stock-btn" type="submit" expand="block" [disabled]="!stockForm.valid">{{ 'createStock.create' | translate }}</ion-button>
+              </form>
+            </div>
+          </ion-col></ion-row
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

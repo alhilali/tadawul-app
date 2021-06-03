@@ -8,10 +8,10 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { ComponentsModule } from '../../components/components.module';
-import { CreateEventPageModule } from '../event/create-event/create-event.module';
+import { CreateStockPageModule } from '../stock/create-stock/create-stock.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, ComponentsModule, DashboardPageRoutingModule, CreateEventPageModule],
+  imports: [CommonModule, FormsModule, IonicModule, ComponentsModule, DashboardPageRoutingModule, CreateStockPageModule],
   declarations: [DashboardPage],
 })
 export class DashboardPageModule {}
